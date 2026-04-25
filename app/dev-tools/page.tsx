@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const AI_TOOL_KIND_FILTERS = ["전체", "코드보조", "에이전트형", "UI생성"] as const;
@@ -188,6 +189,16 @@ export default function DevToolsPage() {
         <h2>개발툴</h2>
         <p>실무에서 자주 사용하는 개발 도구를 카테고리별로 정리했습니다.</p>
       </div>
+
+      <section className="project-page-card">
+        <h4>이 사이트 도구</h4>
+        <p>
+          HTML 업로드 → axe-core 접근성 · Rule Engine SEO/구조 · 자동 수정 unified diff · PR 본문 마크다운.
+        </p>
+        <Link href="/html-audit" className="dev-tools-local-link">
+          HTML 감사 열기 →
+        </Link>
+      </section>
 
       {DEV_TOOL_GROUPS.map((group) => {
         const filteredTools =

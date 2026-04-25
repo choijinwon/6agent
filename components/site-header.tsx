@@ -8,6 +8,8 @@ const NAV_ITEMS = [
   { href: "/", label: "홈" },
   { href: "/career-resume", label: "경력기술서" },
   { href: "/dev-tools", label: "개발툴" },
+  { href: "/html-audit", label: "HTML 감사" },
+  { href: "/productivity", label: "생산성" },
   { href: "/projects", label: "프로젝트" },
   { href: "/timeline", label: "타임라인" },
   { href: "/agents", label: "에이전트" },

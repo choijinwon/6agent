@@ -49,7 +49,102 @@ const SUMMARY_TEMPLATES = [
   "실시간 지표 모니터링 기반으로 성능 이슈를 조기에 감지하고 대응합니다.",
 ] as const;
 
-export const PROJECT_ARCHIVE: ProjectArchiveItem[] = Array.from(
+const FEATURED_PROJECTS: ProjectArchiveItem[] = [
+  {
+    id: "openclaw-connect",
+    title: "OpenClaw 연결",
+    summary: "OpenClaw와 툴·워크플로를 연동해 자동화·에이전트 흐름을 구성하는 프로젝트입니다.",
+    domain: "MLOps",
+    stage: "MVP",
+    impact: "연동 구성",
+    year: 2026,
+    tags: ["openclaw", "integration", "mcp"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/openclaw-connect/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/openclaw-connect",
+      githubUrl: "https://github.com/choijinwon/openclaw-connect",
+    },
+  },
+  {
+    id: "figma-mcp-ui",
+    title: "Figma MCP UI 연결",
+    summary: "Figma와 MCP·UI 툴을 이어 디자인–개발 흐름을 연동하는 프로젝트입니다.",
+    domain: "Analytics",
+    stage: "MVP",
+    impact: "UI·디자인 연동",
+    year: 2026,
+    tags: ["figma", "mcp", "ui"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/figma-mcp-ui/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/figma-mcp-ui",
+      githubUrl: "https://github.com/choijinwon/figma-mcp-ui",
+    },
+  },
+  {
+    id: "devcheck",
+    title: "DevCheck",
+    summary: "Puppeteer와 axe-core로 URL별 프론트엔드 접근성·QA를 점검하는 Next.js 앱(Frontend QA Checker)입니다.",
+    domain: "Experimentation",
+    stage: "Production",
+    impact: "a11y·QA 자동 점검",
+    year: 2026,
+    tags: ["puppeteer", "axe", "nextjs", "qa"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/DevCheck/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/devcheck",
+      githubUrl: "https://github.com/choijinwon/DevCheck",
+    },
+  },
+  {
+    id: "vibe-coding-academy",
+    title: "바이브코딩 아카데미",
+    summary: "Next.js 15·Netlify·TypeScript 기반 종합 학습 플랫폼. Netlify Functions·Identity, Neon·Drizzle로 인증·DB를 구성합니다.",
+    domain: "Analytics",
+    stage: "MVP",
+    impact: "학습·인증 흐름",
+    year: 2026,
+    tags: ["nextjs", "netlify", "typescript", "drizzle", "education"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/vibe-coding-academy/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/vibe-coding-academy",
+      githubUrl: "https://github.com/choijinwon/vibe-coding-academy",
+    },
+  },
+  {
+    id: "promptedu",
+    title: "PromptEdu (Prompt Hub)",
+    summary: "고품질 프롬프트 거래·공유를 위한 마켓플레이스. Next.js 15, Prisma, PostgreSQL·크리에이터 대시보드·비즈니스 모델 캔버스를 갖춘 AI 생태계 웹앱입니다.",
+    domain: "Search",
+    stage: "MVP",
+    impact: "프롬프트 마켓",
+    year: 2026,
+    tags: ["nextjs", "prisma", "prompts", "marketplace", "typescript"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/promptedu/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/promptedu",
+      githubUrl: "https://github.com/choijinwon/promptedu",
+    },
+  },
+  {
+    id: "naver-blog-automation",
+    title: "네이버 블로그 자동화",
+    summary: "Selenium·Python으로 네이버 로그인·포스팅·이미지 업로드를 자동화합니다. Unsplash 연동, 에디터 팝업 처리, Chrome ARM64 지원을 포함합니다.",
+    domain: "MLOps",
+    stage: "MVP",
+    impact: "콘텐츠 자동화",
+    year: 2026,
+    tags: ["python", "selenium", "naver", "automation", "unsplash"],
+    links: {
+      readmeUrl: "https://github.com/choijinwon/naver-blog-automation/blob/main/README.md",
+      notionUrl: "https://www.notion.so/biilychoi/naver-blog-automation",
+      githubUrl: "https://github.com/choijinwon/naver-blog-automation",
+    },
+  },
+];
+
+export const PROJECT_ARCHIVE: ProjectArchiveItem[] = [
+  ...FEATURED_PROJECTS,
+  ...Array.from(
   { length: 200 },
   (_, index) => {
     const number = index + 1;
@@ -80,7 +175,8 @@ export const PROJECT_ARCHIVE: ProjectArchiveItem[] = Array.from(
       },
     };
   },
-);
+),
+];
 
 export const PROJECT_DOMAINS = [...DOMAINS];
 

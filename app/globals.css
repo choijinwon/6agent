@@ -943,6 +943,18 @@ h1 {
   font-size: 0.8rem;
 }
 
+.dev-tools-local-link {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.dev-tools-local-link:hover {
+  text-decoration: underline;
+}
+
 .dev-tools-security {
   margin-top: 0.62rem;
   border: 1px solid rgb(255 255 255 / 10%);
