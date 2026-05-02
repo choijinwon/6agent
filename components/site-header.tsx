@@ -78,7 +78,7 @@ export function SiteHeader() {
           <button
             type="button"
             className="site-menu-btn"
-            aria-label="메뉴 열기"
+            aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-site-nav"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}

@@ -1,13 +1,138 @@
-<!-- 의도적으로 나쁜 샘플: html-audit(axe, Rule, 자동수정) 테스트용 -->
-<html>
+<!-- html-audit 샘플: 반응형 레이아웃 + 검색/SNS 노출용 SEO 메타·시맨틱 구조 -->
+<!DOCTYPE html>
+<html lang="ko">
   <head>
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>반응형 HTML 샘플 | 접근성·SEO 점검용 페이지</title>
+    <meta
+      name="description"
+      content="모바일·데스크톱에 맞는 레이아웃과 페이지 제목, 설명 메타 태그, 소셜 공유(Open Graph), 구조화된 제목 순서를 적용한 HTML 감사용 예시 페이지입니다."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#121217" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="반응형 HTML 샘플 | 접근성·SEO 점검용 페이지" />
+    <meta
+      property="og:description"
+      content="모바일·데스크톱에 맞는 레이아웃과 메타 정보, 단일 H1 계층, 이미지 대체 텍스트를 포함한 예시 페이지입니다."
+    />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="HTML 감사 샘플" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="반응형 HTML 샘플 | 접근성·SEO 점검용 페이지" />
+    <meta
+      name="twitter:description"
+      content="메타 설명과 시맨틱 마크업을 갖춘 HTML 감사용 샘플 페이지입니다."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "반응형 HTML 샘플 | 접근성·SEO 점검용 페이지",
+        "description": "모바일·데스크톱 레이아웃과 페이지 메타 정보, 계층적 제목, 이미지 대체 텍스트를 포함한 HTML 감사용 예시 페이지.",
+        "inLanguage": "ko-KR",
+        "isPartOf": { "@type": "WebSite", "name": "HTML 감사 샘플" }
+      }
+    </script>
+
+    <style>
+      :root {
+        --pad: clamp(0.75rem, 3.5vw, 1.5rem);
+        --maxw: min(100%, 40rem);
+      }
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0 auto;
+        padding: var(--pad);
+        max-width: var(--maxw);
+        font-size: clamp(0.9rem, 2.75vw + 0.55rem, 1rem);
+        line-height: 1.55;
+      }
+      h1 {
+        font-size: clamp(1.125rem, 4vw + 0.65rem, 1.625rem);
+        line-height: 1.25;
+        margin-block: 0.65em 0.35em;
+        word-break: keep-all;
+      }
+      h2 {
+        font-size: clamp(1rem, 2.75vw + 0.65rem, 1.25rem);
+        line-height: 1.3;
+        margin-block: 1em 0.4em;
+        word-break: keep-all;
+      }
+      p {
+        margin-block: 0.5em;
+      }
+      figure {
+        margin: 1rem 0;
+      }
+      figcaption {
+        font-size: 0.875em;
+        color: #555;
+        margin-top: 0.35rem;
+      }
+      img {
+        max-width: min(100%, 80px);
+        height: auto;
+        vertical-align: middle;
+        display: block;
+      }
+      .icon-only {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        margin-top: 0.75rem;
+        border-radius: 0.375rem;
+        border: 1px solid #ccc;
+        background: #f5f5f5;
+        touch-action: manipulation;
+      }
+    </style>
   </head>
   <body>
-    <h1>첫 번째 H1</h1>
-    <h1>두 번째 H1 (중복)</h1>
-    <p>본문</p>
-    <img src="https://via.placeholder.com/80" />
-    <button class="icon-only" type="button"></button>
+    <header>
+      <h1>접근성·SEO 점검용 반응형 샘플 페이지</h1>
+      <p>
+        페이지마다 하나의 큰 제목(H1), 그 아래 섹션은 H2로 구분했습니다. 메타 태그는 검색 결과와 카드 형태 미리보기에
+        쓰이며, 같은 문구를 과도하게 반복하지 않도록 작성했습니다.
+      </p>
+    </header>
+
+    <main>
+      <article>
+        <h2>본문 및 미디어</h2>
+        <p>
+          본 단락은 검색 크롤러가 주제 문맥을 읽기 쉽게 하는 짧은 설명 역할을 합니다. 사용자가 줄였다 펼치는 레이아웃에서도
+          가독성을 위해 줄 간격과 여백을 조정했습니다.
+        </p>
+        <figure>
+          <img
+            src="https://via.placeholder.com/80"
+            alt="80×80 픽셀 크기의 자리표시 회색 플레이스홀더 이미지"
+            width="80"
+            height="80"
+            decoding="async"
+            loading="lazy"
+          />
+          <figcaption>이미지에 의미 있는 대체 텍스트와 가로세로 크기를 지정해 레이아웃 이동을 줄였습니다.</figcaption>
+        </figure>
+      </article>
+    </main>
+
+    <footer>
+      <p><small>&copy; HTML 감사 도구 테스트용 예시 페이지</small></p>
+      <!-- 아래 버튼은 시각적으로만 아이콘 영역이어도 스크린리더 이름을 제공합니다 -->
+      <button class="icon-only" type="button" aria-label="메뉴 열기">☰</button>
+    </footer>
   </body>
 </html>
