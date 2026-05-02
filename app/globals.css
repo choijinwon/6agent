@@ -39,6 +39,7 @@ body {
   top: 0;
   z-index: 3000;
   isolation: isolate;
+  overflow-x: clip;
   backdrop-filter: blur(10px);
   background: linear-gradient(180deg, rgb(8 10 18 / 82%), rgb(8 10 18 / 58%));
   border-bottom: 1px solid rgb(255 255 255 / 8%);
@@ -47,10 +48,12 @@ body {
 
 .site-header-inner {
   min-height: var(--site-header-inner-min-h);
+  padding-block: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: clamp(0.5rem, 2.4vw, 1rem);
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -73,45 +76,27 @@ body {
   flex: 1;
   min-width: 0;
   justify-content: flex-end;
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.42rem 0.55rem;
   min-width: 0;
   max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 2px;
-  margin-bottom: -2px;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(127 141 255 / 35%) transparent;
-}
-
-.site-nav::-webkit-scrollbar {
-  height: 3px;
-}
-
-.site-nav::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.site-nav::-webkit-scrollbar-thumb {
-  background: rgb(127 141 255 / 35%);
-  border-radius: 999px;
 }
 
 .site-nav a {
   flex-shrink: 0;
   color: #d5dcfb;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: clamp(0.78rem, 0.85vw + 0.72rem, 0.88rem);
   border-radius: 999px;
-  padding: 0.25rem 0.55rem;
+  padding: 0.22rem 0.46rem;
   white-space: nowrap;
 }
 
@@ -183,6 +168,213 @@ body {
   margin: 0 auto;
 }
 
+/* ── SiteShell: 왼쪽 사이드 메뉴 + 상단바 ───────────────────────────── */
+.site-shell {
+  --site-sidebar-width-open: clamp(216px, 22vw, 272px);
+  display: flex;
+  align-items: stretch;
+  min-height: 100dvh;
+}
+
+.site-main-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.site-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 3200;
+  isolation: isolate;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgb(8 10 18 / 82%), rgb(8 10 18 / 58%));
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.site-topbar-inner {
+  min-height: var(--site-header-inner-min-h);
+  padding-block: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.site-sidebar-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 0.45rem;
+  border-radius: 10px;
+  border: 1px solid rgb(127 141 255 / 45%);
+  background: rgb(127 141 255 / 16%);
+  color: #eef3ff;
+  cursor: pointer;
+}
+
+.site-sidebar-toggle:hover {
+  background: rgb(127 141 255 / 22%);
+}
+
+.site-sidebar-toggle:focus-visible {
+  outline: 2px solid rgb(124 245 203 / 55%);
+  outline-offset: 2px;
+}
+
+.site-sidebar-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #e8edff;
+}
+
+.site-topbar-brand {
+  color: #eef1ff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: clamp(0.82rem, 1.85vw + 0.62rem, 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.site-sidebar {
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgb(12 14 22 / 98%), rgb(8 10 16 / 96%));
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.site-sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: min(var(--site-sidebar-width-open), 85vw);
+  max-width: var(--site-sidebar-width-open);
+}
+
+.site-sidebar-head {
+  padding: 0.72rem 0.85rem 0.52rem;
+  padding-top: calc(0.72rem + env(safe-area-inset-top, 0px));
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
+  flex-shrink: 0;
+}
+
+.site-sidebar-brand {
+  color: #eef1ff;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+}
+
+.site-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  padding: 0.62rem 0.52rem 1rem;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.site-sidebar-nav a {
+  color: #d5dcfb;
+  text-decoration: none;
+  font-size: 0.88rem;
+  border-radius: 10px;
+  padding: 0.38rem 0.52rem;
+  border: 1px solid transparent;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.site-sidebar-nav a:hover {
+  color: #fff;
+  background: rgb(127 141 255 / 10%);
+}
+
+.site-sidebar-nav a.is-active {
+  color: #fff;
+  background: rgb(127 141 255 / 22%);
+  border: 1px solid rgb(127 141 255 / 45%);
+}
+
+.site-sidebar-scrim {
+  display: none;
+}
+
+.site-shell-mobile .site-sidebar-scrim.is-visible {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 3180;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgb(2 4 10 / 52%);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.site-shell-desktop .site-sidebar-head {
+  display: none;
+}
+
+.site-shell-desktop .site-sidebar-nav {
+  padding-top: 1rem;
+}
+
+.site-shell-desktop .site-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100dvh;
+  width: 0;
+  border-right-width: 0;
+  border-right-style: solid;
+  border-right-color: transparent;
+  transition:
+    width 0.22s ease,
+    border-right-color 0.22s ease;
+}
+
+.site-shell-desktop.is-sidebar-open .site-sidebar {
+  width: var(--site-sidebar-width-open);
+  border-right-color: rgb(255 255 255 / 10%);
+}
+
+.site-shell-mobile .site-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: min(var(--site-sidebar-width-open), min(288px, 86vw));
+  z-index: 3190;
+  transform: translateX(-100%);
+  transition: transform 0.24s ease;
+  border-right: 1px solid rgb(255 255 255 / 10%);
+}
+
+.site-shell-mobile.is-sidebar-open .site-sidebar {
+  transform: translateX(0);
+  box-shadow: 12px 0 40px rgb(5 6 11 / 55%);
+}
+
 .page-pad {
   padding-top: 1.6rem;
   padding-bottom: 2.8rem;
@@ -210,6 +402,12 @@ body {
 .hero > * {
   position: relative;
   z-index: 1;
+}
+
+/* `.hero > *`의 position:relative가 배경 레이어보다 높아 absolute를 덮어쓰므로 별도로 복구 */
+.hero > .hero-3d-bg {
+  position: absolute;
+  z-index: 0;
 }
 
 .hero-3d-bg {
@@ -2729,7 +2927,9 @@ h2 {
   .timeline-item,
   .agent-card,
   .cta,
-  .phase-hud {
+  .phase-hud,
+  .site-shell-desktop .site-sidebar,
+  .site-shell-mobile .site-sidebar {
     transition: none;
   }
 }

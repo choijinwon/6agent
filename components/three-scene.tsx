@@ -126,7 +126,7 @@ function SceneRig({ scrollProgress, activeStepIndex, totalSteps }: SceneRigProps
         ref={leftLightRef}
         position={[3, 4, 4]}
         intensity={1.35}
-        color="#8895ff"
+        color="#a8b892"
       />
       <pointLight
         ref={rightLightRef}

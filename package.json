@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
+    "3d-tiles-renderer": "^0.4.14",
     "axe-core": "^4.11.3",
     "diff": "^9.0.0",
     "framer-motion": "^12.38.0",

@@ -2,26 +2,18 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState } from "react";
-import { TIMELINE_STEPS } from "@/data/story-data";
 
-const ThreeScene = dynamic(
-  () => import("@/components/three-scene").then((mod) => mod.ThreeScene),
+const TilesHeroScene = dynamic(
+  () => import("@/components/tiles-hero-scene").then((mod) => mod.TilesHeroScene),
   { ssr: false },
 );
 
 export function StoryPage() {
-  const [scrollProgress] = useState(0);
-
   return (
     <main>
       <header id="top" className="hero section">
         <div className="hero-3d-bg" aria-hidden="true">
-          <ThreeScene
-            scrollProgress={scrollProgress}
-            activeStepIndex={0}
-            totalSteps={TIMELINE_STEPS.length}
-          />
+          <TilesHeroScene />
         </div>
         <p className="eyebrow">AI Agent Developer Story</p>
         <h1>

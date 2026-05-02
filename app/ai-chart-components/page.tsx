@@ -45,7 +45,7 @@ const SAMPLE_LABELS: Record<SampleChart, string> = {
 };
 
 const DONUT_SEGMENTS = [
-  { label: "Organic", value: 34, color: "#7f8dff" },
+  { label: "Organic", value: 34, color: "#aab896" },
   { label: "Paid", value: 26, color: "#79f5c7" },
   { label: "Referral", value: 18, color: "#ffb171" },
   { label: "Direct", value: 22, color: "#f38dff" },
@@ -432,7 +432,7 @@ export default function AiChartComponentsPage() {
           >
             <defs>
               <linearGradient id="chartLine" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#7f8dff" />
+                <stop offset="0%" stopColor="#aab896" />
                 <stop offset="100%" stopColor="#79f5c7" />
               </linearGradient>
             </defs>
@@ -444,7 +444,7 @@ export default function AiChartComponentsPage() {
                 cy={point.y}
                 r="5"
                 fill="#dfe5ff"
-                stroke="#7f8dff"
+                stroke="#aab896"
                 strokeWidth="2"
                 onMouseEnter={() =>
                   setTooltip({

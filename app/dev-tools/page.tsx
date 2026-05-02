@@ -198,6 +198,9 @@ export default function DevToolsPage() {
         <Link href="/html-audit" className="dev-tools-local-link">
           HTML 감사 열기 →
         </Link>
+        <Link href="/design-md" className="dev-tools-local-link">
+          한국형 Design MD (Bootstrap/Tailwind) →
+        </Link>
       </section>
 
       {DEV_TOOL_GROUPS.map((group) => {

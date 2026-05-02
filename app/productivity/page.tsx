@@ -568,7 +568,7 @@ export default function ProductivityPage() {
         .productivity-tab.is-active {
           color: var(--text);
           background: var(--primary-soft);
-          border-color: rgb(127 141 255 / 45%);
+          border-color: rgb(var(--accent-ch) / 45%);
         }
         .productivity-label {
           display: block;
@@ -629,7 +629,7 @@ export default function ProductivityPage() {
           cursor: not-allowed;
         }
         .productivity-secondary {
-          border: 1px solid rgb(127 141 255 / 35%);
+          border: 1px solid rgb(var(--accent-ch) / 35%);
           background: transparent;
           color: #dbe2ff;
         }
@@ -667,7 +667,7 @@ export default function ProductivityPage() {
           text-transform: uppercase;
           padding: 0.12rem 0.4rem;
           border-radius: 6px;
-          background: rgb(127 141 255 / 22%);
+          background: rgb(var(--accent-ch) / 22%);
         }
         .productivity-block-list {
           margin: 0;
